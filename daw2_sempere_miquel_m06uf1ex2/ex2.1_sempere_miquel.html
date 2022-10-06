@@ -49,9 +49,9 @@
 	<p id="resultats"></p>
 	<button onclick='fNetejaResultats()'>Neteja resultats</button>
 	<script>
+		let form = document.getElementsByName("uv[]");
+		let arrayVel = document.getElementsByName("vel[]");
 		function fCalculaMitjanes() {
-			let arrayVel = document.getElementsByName("vel[]");
-			let form = document.getElementsByName("uv[]");
             let respostaFinal = ""; 
 
 			for (let n = 0; n < form.length; n++) {
@@ -75,7 +75,14 @@
 		}
 
 		function fNetejaDades() {
-			let arrayVel = document.getElementsByName("vel[]");
+			for(let x = 0; x<form.length;x++){
+				if(x==0){
+					form[x].checked = true;
+				}else{
+					form[x].checked = false;
+				}
+			}
+			
 			for (let x = 0; x < arrayVel.length; x++) {
 				// document.getElementsByName("vel[]").value = "0";
                 arrayVel[x].value = 0;
